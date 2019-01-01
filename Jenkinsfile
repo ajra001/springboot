@@ -25,7 +25,7 @@ pipeline {
       agent any
       steps {
         echo 'Starting to build docker image'
-        sh 'docker build amirajroud/spring-boot-web-0.0.1-SNAPSHOT'
+        sh 'docker build -f /var/jenkins_home/workspace/springboot_master/Dockerfile .'
       }
     }
     stage('Docker Push') {
