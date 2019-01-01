@@ -1,9 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Message') {
       steps {
         echo 'Jenkins Multi Pipeline'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'sh \'mvn clean install\''
       }
     }
   }
