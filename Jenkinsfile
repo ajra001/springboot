@@ -8,7 +8,8 @@ pipeline {
     }
     stage('Build') {
       steps {
-        sh 'sh \'mvn clean install\''
+        sh '''sh \'pwd\'
+sh \'mvn clean install\''''
       }
     }
   }
