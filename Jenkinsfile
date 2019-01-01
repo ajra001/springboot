@@ -25,7 +25,7 @@ pipeline {
       agent any
       steps {
         echo 'Starting to build docker image'
-        sh 'docker build amirajroud/sample-spring-boot:latest'
+        sh 'docker build amirajroud/spring-boot-web-0.0.1-SNAPSHOT'
       }
     }
     stage('Docker Push') {
