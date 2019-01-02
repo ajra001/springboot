@@ -26,6 +26,7 @@ pipeline {
       steps {
         echo 'Starting to build docker image'
         sh 'docker build . -t sample-spring-boot:latest'
+        sh 'pwd'
       }
     }
     stage('Docker Push') {
