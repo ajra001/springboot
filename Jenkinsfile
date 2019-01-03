@@ -25,14 +25,18 @@ pipeline {
             }
         }
         stage('Build image') {
+            agent any
             steps {
                 echo 'Starting to build docker image'
+                sh 'docker build -t amirajroud/sample-spring-boot:latest .')
+            }
 
-                script {
-                    def customImage = docker.build("sample-pring-boot:${env.BUILD_ID}")
-                    customImage.push()
+        }
+        stage('Docker Push') {
+            agent any
+            steps {
+                sh 'docker push amirajroud/sample-spring-boot:latest'
                 }
             }
         }
-    }
 }
