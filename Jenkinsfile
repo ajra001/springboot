@@ -25,8 +25,8 @@ pipeline {
             }
         }
         stage('Image') {
-            dir ('account-service') {
-                def app = docker.build "localhost:5000/account-service:${env.version}"
+            steps {
+                def app = docker.build "localhost:5000/sample-spring-boot:${env.version}"
                 app.push()
             }
         }
