@@ -26,7 +26,9 @@ pipeline {
         }
         stage('Build image') {
             agent {
-                Dockerfile true
+                dockerfile {
+                    filename 'Dockerfile'
+                }
             }
             steps {
                 echo 'Starting to build docker image'
