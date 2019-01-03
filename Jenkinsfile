@@ -26,12 +26,7 @@ pipeline {
         }
         stage('Build image') {
             agent {
-                dockerfile {
-                    filename 'Dockerfile.build'
-                    dir 'build'
-                    label 'my-defined-label'
-                    registryUrl 'http://localhost:5000'
-                }
+                dockerfile true
             }
             steps {
                 echo 'Starting to build docker image'
