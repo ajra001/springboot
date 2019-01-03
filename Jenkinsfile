@@ -1,5 +1,5 @@
 pipeline {
-  agent { dockerfile true }
+  agent any
   tools { 
         maven 'Maven 3.3.9' 
         jdk 'jdk8' 
@@ -23,6 +23,24 @@ pipeline {
                     junit 'target/surefire-reports/**/*.xml' 
                 }
             }
-        }    
+        }
+        stage('Build image') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile.build'
+                    dir 'build'
+                    label 'my-defined-label'
+                    registryUrl 'http://localhost:5000'
+                }
+            }
+            steps {
+                echo 'Starting to build docker image'
+
+                script {
+                    def customImage = docker.build("sample-pring-boot:${env.BUILD_ID}")
+                    customImage.push()
+                }
+            }
+        }
     }
 }
