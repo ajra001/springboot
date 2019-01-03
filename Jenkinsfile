@@ -26,17 +26,10 @@ pipeline {
         }
         stage('Build image') {
             agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                }
+                dockerfile true
             }
             steps {
                 echo 'Starting to build docker image'
-
-                script {
-                    def customImage = docker.build("sample-pring-boot:${env.BUILD_ID}")
-                    customImage.push()
-                }
             }
         }
     }
