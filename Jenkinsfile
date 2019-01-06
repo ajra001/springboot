@@ -32,7 +32,7 @@ pipeline {
     stage('Docker Push') {
       agent any
       steps {
-        sh 'docker push sample-spring-boot:latest'
+        sh 'docker push localhost:5000/sample-spring-boot:latest'
       }
     }
   }
