@@ -32,7 +32,8 @@ pipeline {
     stage('Docker Push') {
       agent any
       steps {
-        sh 'docker push localhost:5000/sample-spring-boot:latest'
+        sh "docker login -u amir_ajroud -p Cacaroto009 gcr.io/amirproject"
+        sh 'docker push sample-spring-boot:latest'
       }
     }
   }
