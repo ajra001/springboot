@@ -32,7 +32,7 @@ pipeline {
       agent any
       steps {
         echo 'Starting to build docker image'
-        sh 'docker build . -t ' + sample-spring-boot:latest
+        sh 'docker build . -t sample-spring-boot:latest'
       }
     }
     stage('Docker Push') {
