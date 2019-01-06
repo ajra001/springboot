@@ -2,7 +2,7 @@ pipeline {
   agent {
 
         docker {
-            image '5202/esign-event-handling-ci-agent:latest'
+            image 'amirajroud/sample-spring-boot:latest'
             registryUrl "http://localhost:5000"
         }
 
