@@ -1,5 +1,12 @@
 pipeline {
-  agent any
+  aagent {
+
+        docker {
+            image '5202/esign-event-handling-ci-agent:latest'
+            registryUrl "http://localhost:5000"
+        }
+
+    }
   stages {
     stage('Initialize') {
       steps {
@@ -25,7 +32,7 @@ pipeline {
       agent any
       steps {
         echo 'Starting to build docker image'
-        sh 'docker build -f "./Dockerfile" .'
+        sh 'docker build . -t ' + sample-spring-boot:latest
       }
     }
     stage('Docker Push') {
