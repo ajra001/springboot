@@ -1,5 +1,5 @@
 pipeline {
-  aagent {
+  agent {
 
         docker {
             image '5202/esign-event-handling-ci-agent:latest'
