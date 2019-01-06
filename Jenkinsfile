@@ -1,12 +1,5 @@
 pipeline {
-  agent {
-
-        docker {
-            image 'amirajroud/sample-spring-boot:latest'
-            registryUrl "http://localhost:5000"
-        }
-
-    }
+  agent any
   stages {
     stage('Initialize') {
       steps {
