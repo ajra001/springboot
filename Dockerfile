@@ -1,5 +1,5 @@
 FROM openjdk:8
-ADD ./tspringboot_master/target/spring-boot-web-0.0.1-SNAPSHOT.jar .
+ADD ./springboot_master/target/spring-boot-web-0.0.1-SNAPSHOT.jar .
 EXPOSE 9999
 ADD docker-entrypoint.sh .
 # Execute file at docker run.
