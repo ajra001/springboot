@@ -32,8 +32,10 @@ pipeline {
     stage('Docker Push') {
       agent any
       steps {
-        sh "docker login -u amir_ajroud -p Cacaroto009 gcr.io/amirproject"
-        sh 'docker push sample-spring-boot:latest'
+        withCredentials([sshUserPrivateKey(credentialsId: 'amirproject', keyFileVariable: '2d81c6222af2701092a6ab819aff36da9898d05d')]) {
+          //sh "docker login -u amir_ajroud -p Cacaroto009 gcr.io/amirproject"
+          sh 'docker push sample-spring-boot:latest'
+        }
       }
     }
   }
