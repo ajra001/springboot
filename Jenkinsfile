@@ -32,8 +32,9 @@ pipeline {
     stage('Docker Push') {
       agent any
       steps {
-          sh 'wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-228.0.0-darwin-x86.tar.gz && tar -xvf google-cloud-sdk-228.0.0-darwin-x86.tar.gz && ./google-cloud-sdk/install.sh'
-          sh 'gcloud auth login amir.ajroud@gmail.com'
+          //sh 'docker pull python'
+          //sh 'wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-228.0.0-darwin-x86.tar.gz && tar -xvf google-cloud-sdk-228.0.0-darwin-x86.tar.gz && ./google-cloud-sdk/install.sh'
+          //sh 'gcloud auth login amir.ajroud@gmail.com'
           sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
           //sh "docker login -u amir_ajroud -p Cacaroto009 gcr.io/amirproject"
           sh 'docker  push gcr.io/amirproject/sample-spring-boot:latest'
