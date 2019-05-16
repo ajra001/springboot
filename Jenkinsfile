@@ -26,7 +26,7 @@ pipeline {
       steps {
         echo 'Starting to build docker image'
         sh 'pwd'
-        sh 'sudo -u amir docker build . -t sample-spring-boot:latest'
+        sh 'docker build . -t sample-spring-boot:latest'
       }
     }
     stage('Docker Push') {
