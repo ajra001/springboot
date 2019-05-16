@@ -1,6 +1,6 @@
 pipeline {
   environment {
-        PATH = "$PATH:/Users/amir/Library/Group Containers/group.com.docker/bin"
+        PATH = "$PATH:/Applications/Docker.app/Contents/Resources/bin/"
   }
   agent any
   stages {
