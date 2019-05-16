@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+        docker { image 'node:7-alpine' }
+  }
+  environment {
+        PATH = "$PATH:/usr/local/bin/docker"
+  }
   stages {
     stage('Initialize') {
       steps {
@@ -32,10 +37,11 @@ pipeline {
     stage('Docker Push') {
       agent any
       steps {
-        sh 'rm -rf google-cloud-sdk google-cloud-sdk-228.0.0-linux-x86.tar.gz && wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-228.0.0-linux-x86.tar.gz && tar -xvf google-cloud-sdk-228.0.0-linux-x86.tar.gz && ./google-cloud-sdk/install.sh'
-        sh 'gcloud auth login amir.ajroud@gmail.com'
-        sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
-        sh 'docker  push gcr.io/amirproject/sample-spring-boot:latest'
+          sh 'rm -rf google-cloud-sdk google-cloud-sdk-228.0.0-linux-x86.tar.gz && wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-228.0.0-linux-x86.tar.gz && tar -xvf google-cloud-sdk-228.0.0-linux-x86.tar.gz && ./google-cloud-sdk/install.sh'
+          sh 'gcloud auth login amir.ajroud@gmail.com'
+          sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
+          //sh "docker login -u amir_ajroud -p Cacaroto009 gcr.io/amirproject"
+          sh 'docker  push gcr.io/amirproject/sample-spring-boot:latest'
       }
     }
   }
@@ -43,7 +49,3 @@ pipeline {
     maven 'Maven 3.3.9'
     jdk 'jdk8'
   }
-  environment {
-    PATH = "$PATH:/usr/local/bin/docker"
-  }
-}
