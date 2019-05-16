@@ -1,6 +1,6 @@
 pipeline {
   agent {
-        docker { image 'node:7-alpine' }
+        dockerfile true
   }
   environment {
         PATH = "$PATH:/usr/local/bin/docker"
