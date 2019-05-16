@@ -1,6 +1,6 @@
 pipeline {
   environment {
-        PATH = "$PATH:/Applications/Docker.app/Contents/Resources/bin/"
+        PATH = "$PATH:/usr/local/bin/docker"
   }
   agent any
   stages {
