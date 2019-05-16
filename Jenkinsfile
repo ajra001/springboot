@@ -1,4 +1,7 @@
 pipeline {
+  environment {
+        PATH = "$PATH:/Users/amir/Library/Group Containers/group.com.docker/bin"
+  }
   agent any
   stages {
     stage('Initialize') {
