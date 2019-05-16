@@ -3,7 +3,7 @@ pipeline {
         dockerfile true
   }
   environment {
-        PATH = "$PATH:/Applications/Docker.app/Contents/Resources/bin"
+        PATH = "$PATH:/usr/local/bin"
   }
   stages {
     stage('Initialize') {
