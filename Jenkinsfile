@@ -26,6 +26,7 @@ pipeline {
       steps {
         echo 'Starting to build docker image'
         sh 'pwd'
+        bat(script: 'docker build . -t sample-spring-boot:latest', returnStdout: true, returnStatus: true)
       }
     }
     stage('Docker Push') {
