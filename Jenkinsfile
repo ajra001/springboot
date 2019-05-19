@@ -26,7 +26,6 @@ pipeline {
       steps {
         echo 'Starting to build docker image'
         sh 'pwd'
-        sh '/Applications/Docker.app/Contents/Resources/bin/docker build . -t sample-spring-boot:latest'
       }
     }
     stage('Docker Push') {
