@@ -36,6 +36,14 @@ pipeline {
         sh 'docker  push amirajroud/sample-spring-boot:latest'
       }
     }
+    stage('GCloud Push') {
+      steps {
+        sh '''sh \'gcloud auth login amir.ajroud@gmail.com\'
+        sh \'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest\' 
+
+sh \'docker  push gcr.io/amirproject/sample-spring-boot:latest\''''
+      }
+    }
   }
   tools {
     maven 'Maven 3.3.9'
