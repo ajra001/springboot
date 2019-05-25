@@ -33,7 +33,7 @@ pipeline {
       agent any
       steps {
         sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
-        sh 'docker  push amirajroud/sample-spring-boot:latest'
+        sh 'docker  push sample-spring-boot:latest'
       }
     }
   }
