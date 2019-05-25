@@ -25,7 +25,7 @@ pipeline {
       agent any
       steps {
         echo 'Starting to build docker image'
-        sh 'pwd'
+        sh 'docker login -u amirajroud -p cacaroto7'
         sh 'docker build . -t sample-spring-boot:latest'
       }
     }
