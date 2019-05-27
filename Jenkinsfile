@@ -41,11 +41,6 @@ pipeline {
         sh 'sudo -u root snap install google-cloud-sdk --classic'
         sh 'gcloud auth activate-service-account --project=amirproject --key-file=/var/lib/jenkins/workspace/amirproject-001.json'
         sh 'gcloud config set account jenkins-gcr-account-5@amirproject.iam.gserviceaccount.com'
-        sh 'gcloud auth application-default login --no-launch-browser'
-        sh 'gcloud compute instances list'
-        sh 'gcloud auth list'
-        sh 'gcloud auth revoke'
-        sh 'gcloud info'
         sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
         sh 'docker  push gcr.io/amirproject/sample-spring-boot:latest'
       }
