@@ -39,7 +39,13 @@ pipeline {
     stage('GCloud Push') {
       steps {
         sh 'snap install google-cloud-sdk --classic'
-        sh 'gcloud auth login amir.ajroud@gmail.com'
+        sh 'gcloud init --console-only'
+        sh 'gcloud config set account jenkins-gcr-account-5@amirproject.iam.gserviceaccount.com'
+        sh 'gcloud auth application-default login --no-launch-browser'
+        sh 'gcloud compute instances list'
+        sh 'gcloud auth list'
+        sh 'gcloud auth revoke'
+        sh 'gcloud info'
         sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
         sh 'docker  push gcr.io/amirproject/sample-spring-boot:latest'
       }
