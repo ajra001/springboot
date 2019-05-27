@@ -39,6 +39,7 @@ pipeline {
     stage('GCloud Push') {
       steps {
         sh 'sudo -u root snap install google-cloud-sdk --classic'
+        sh 'gcloud auth activate-service-account --project=amirproject --key-file=amirproject-001.json'
         sh 'gcloud config set account jenkins-gcr-account-5@amirproject.iam.gserviceaccount.com'
         sh 'gcloud auth application-default login --no-launch-browser'
         sh 'gcloud compute instances list'
