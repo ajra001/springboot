@@ -38,6 +38,8 @@ pipeline {
     }
     stage('GCloud Push') {
       steps {
+        sh 'gcloud auth configure-docker'
+        sh 'docker login -u _json_key -p "2d81c6222af2701092a6ab819aff36da9898d05d" https://gcr.io'
         sh 'gcloud auth activate-service-account --project=amirproject --key-file=/var/lib/jenkins/workspace/amirproject-001.json'
         sh 'gcloud config set account jenkins-gcr-account-5@amirproject.iam.gserviceaccount.com'
         sh 'docker tag sample-spring-boot  gcr.io/amirproject/sample-spring-boot:latest'
