@@ -1,5 +1,5 @@
 FROM openjdk:8
-ADD /var/lib/jenkins/workspace/springboot_master/target/spring-boot-web-0.0.1-SNAPSHOT.jar /usr/local/bin/
+#ADD ./target/spring-boot-web-0.0.1-SNAPSHOT.jar .
 ADD docker-entrypoint.sh .
 EXPOSE 9999
 # Execute file at docker run.
