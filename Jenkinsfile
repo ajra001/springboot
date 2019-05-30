@@ -22,7 +22,7 @@ pipeline {
       }
     }
     stage('Build image') {
-      agent { dockerfile true }
+      agent any
       steps {
         echo 'Starting to build docker image'
         sh 'docker login -u amirajroud -p cacaroto7'
