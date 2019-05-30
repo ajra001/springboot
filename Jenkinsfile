@@ -1,5 +1,5 @@
 pipeline {
-  agent { dockerfile true }
+  agent any
   stages {
     stage('Initialize') {
       steps {
@@ -22,7 +22,7 @@ pipeline {
       }
     }
     stage('Build image') {
-      agent any
+      agent { dockerfile true }
       steps {
         echo 'Starting to build docker image'
         sh 'docker login -u amirajroud -p cacaroto7'
