@@ -48,9 +48,7 @@ pipeline {
     }
     stage('GCloud Deploy') {
       steps {
-        sh 'gcloud config set compute/zone us-west1-a'
-        sh 'gcloud container clusters create standard-cluster-1'
-        sh 'kubectl run hello-server --image gcr.io/amirproject/sample-spring-boot:latest --port 8080'
+
       }
     }
   }
