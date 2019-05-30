@@ -26,7 +26,7 @@ pipeline {
       steps {
         echo 'Starting to build docker image'
         sh 'docker login -u amirajroud -p cacaroto7'
-        sh 'docker build . -t sample-spring-boot:latest'
+        sh 'docker build . -t sample-spring-boot:latest -f Dockerfile'
       }
     }
     stage('Docker Push') {
