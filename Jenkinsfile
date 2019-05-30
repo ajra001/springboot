@@ -46,11 +46,6 @@ pipeline {
         sh 'docker  push gcr.io/amirproject/sample-spring-boot:latest'
       }
     }
-    stage('GCloud Deploy') {
-      steps {
-
-      }
-    }
   }
   tools {
     maven 'Maven 3.3.9'
