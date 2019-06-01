@@ -40,4 +40,3 @@ Thumbs.db
 .mvn
 *.iml
 atlassian-ide-plugin.xml
-target
